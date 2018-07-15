@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>My first page</title>
+	<link rel="stylesheet" href="{{ url_for('static',filename="bootstrap.min.css") }}">
+	<link rel="stylesheet" href="{{ url_for('static',filename="bootstrap.min.js")}}">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+  <style>
+	.backgroundDiv{background-image: url('/static/1.jpg');
+            /* background-color: gray; */
+            height: 600px;
+            width: 100%;
+                  }
+
+	</style>
+	
+</head>
+<header>
+<nav class="navbar navbar-light bg-light">
+
+  <p style="font-size: 35px;font-family: 'Cinzel', serif;">Exch<span style="opacity: 0.5">a</span>nge</p>
+
+
+
+
+</nav>
+
+</header>
+<body>
+  <div class='backgroundDiv'>
+
+   <form action="{{ url_for('index') }}" method='post'>
+
+  <div class="form-row" style="color:white;padding-left: 20px;padding-top: 30px">
+    <div class="form-group col-md-4">
+      <label for="inputState">From</label>
+      <select id="inputState" class="form-control" name="currency1">
+        <option selected>Choose Currency 1</option>
+      {% for i in currencyName.keys() %}
+      <option>{{ i }}</option>
+      {% endfor %}
+      </select>
+    </div> 
+    <div class="form-group col-md-4">
+      <label for="inputState">To</label>
+      <select id="inputState" class="form-control" name="currency2">
+        <option selected>Choose Currency 2</option>
+      {% for i in currencyName.keys() %}
+      <option>{{ i }}</option>
+      {% endfor %}
+      </select>
+    </div>
+  </div>  
+  <div class="form-group col-md-3" style="color:white">
+    <label for="inputAddress2">Enter Amount</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Amount" name='enteredAmount'>
+  </div>
+  <button type="submit" class="btn btn-primary" style='margin-left: 20px'>Convert</button>
+  </form>
+<br>
+<br>
+<span style="color: white;margin-left: 20px;font-size: 20px"><strong>Result</strong></span>
+<br>
+<br>
+<textarea rows="2" cols="50" style="margin-left: 20px">
+{{ res }}
+</textarea>
+
+
+
+      
+</body>
+
+</html>
