@@ -1,5 +1,5 @@
 # About The web application
-This is a web application built using Python's microframework flask. It allows one to convert one country's currency into
+This web application which is built using Python's microframework flask allows users to convert one country's currency into
 another's. The web API used for this purpose is Currency Converter API : https://currencyconverterapi.com/.
 The version of API is the free version with limited requests.
 
